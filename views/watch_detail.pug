@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+
+    h3= title 
+
+    p #[strong Category: ]
+        a(href=watch.category.url) #{watch.category.name}
+    
+    p #[strong Reference Number: ] #{watch.reference_number}
+
+    p #[strong Description: ] #{watch.description}
+
+    p #[strong Price: ] $#{watch.price}

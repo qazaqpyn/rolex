@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h3= title
+
+  if error 
+    p There are some errors in server side 
+  else 
+    p The online store has the followings: 
+
+    ul 
+      li #[strong Watches: ] !{data.watch_count}
+      li #[strong Collection: ] !{data.collection_count}
