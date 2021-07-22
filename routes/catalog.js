@@ -19,10 +19,10 @@ router.get('/watches', watch_controller.watch_list);
 router.get('/watch/:id', watch_controller.watch_detail);
 
 //get create watch
-router.get('/watch/create',watch_controller.watch_create_get);
+router.get('/watches/create',watch_controller.watch_create_get);
 
 //post create watch
-router.post('/watch/create',watch_controller.watch_create_post);
+router.post('/watches/create',watch_controller.watch_create_post);
 
 //get id update
 router.get('/watch/:id/update',watch_controller.watch_update_get);
@@ -34,7 +34,7 @@ router.post('/watch/:id/update',watch_controller.watch_update_post);
 router.get('/watch/:id/delete', watch_controller.watch_delete_get);
 
 //post id delete
-router.post('/watch/:id/delet', watch_controller.watch_delte_post);
+router.post('/watch/:id/delete', watch_controller.watch_delete_post);
 
 
 //COLLECTION ROUTE
@@ -46,10 +46,10 @@ router.get('/collections', collection_controller.collection_list);
 router.get('/collection/:id', collection_controller.collection_detail);
 
 //get create collection
-router.get('/collection/create', collection_controller.collection_create_get);
+router.get('/collections/create', collection_controller.collection_create_get);
 
 //post create collection
-router.post('/collection/create', collection_controller.collection_create_post);
+router.post('/collections/create', collection_controller.collection_create_post);
 
 //get id collection update
 router.get('/collection/:id/update', collection_controller.collection_update_get);

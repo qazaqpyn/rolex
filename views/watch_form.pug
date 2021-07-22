@@ -1,0 +1,37 @@
+extends layout 
+
+block content 
+
+    h3= title 
+
+    form(method='POST' action='')
+        div.form-group 
+            label(for='name') Name: 
+            input(type='text' name='name' placeholder='Name...' value=(undefined===watch ? '' : watch.name))
+
+            label(for='description') Description: 
+            input(type='text' name='description' placeholder='description...' value=(undefined===watch?'':watch.description))
+
+            div.form-group 
+                label(for='collection') Collection: 
+                select#collection(type='select' placeholder='Select Collection' name='collection' required='true')
+                    - collections.sort(function(a,b){let textA=a.name.toUpperCase();let textB=a.name.toUpperCase(); return (textA<textB)? -1: (textA>textB)? 1 : 0; });
+                    for collection in collections 
+                        if watch 
+                            option(value=collection._id selected=(collection._id.toString() === watch.category._id.toString() ? 'selected' : false  )) #{collection.name} 
+                        else 
+                            option(value=collection._id) #{collection.name} 
+
+
+            label(for='reference_number') Reference Number: 
+            input(type='text' name='reference_number' placeholder='reference number...' value=(undefined===watch?'':watch.reference_number))
+
+            label(for='price') Price($):
+            input(type="text" name='price' placeholder='price...' value=(undefined===watch?'':watch.price))
+        button.btn.btn-primary(type='submit') Submit 
+    
+    if errors
+        ul 
+            for error in errors 
+                li!= error.msg 
+

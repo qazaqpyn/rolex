@@ -1,0 +1,29 @@
+extends layout 
+
+block content 
+
+    h3  #{title}: #{collection.name} 
+
+    if collection_watches.length
+
+        p #[strong Delete the following watches before deleting collection ] 
+
+        div(style='margin-left:20px;margin-top:20px')
+
+            h4 Watches 
+            
+            dl 
+            each watch in collection_watches 
+                dt 
+                    a(href=watch.url) #{watch.name}
+                dd #{watch.reference_number}
+
+        
+    else 
+        p Do you really wanna delete this collection? 
+
+        form(method='POST' action='')
+            div.form-group 
+                input#collectionid.form-control(type='hidden', name='collectionid', required=true, value=collection._id)
+            button.btn.btn-primary(type='submit') Delete 
+
